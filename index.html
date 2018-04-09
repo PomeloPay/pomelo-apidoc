@@ -1,0 +1,644 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Pomelo Pay API</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="php">php</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#quick-start" class="toc-h1 toc-link" data-title="Quick Start">Quick Start</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#using-the-production-environment" class="toc-h2 toc-link" data-title="Quick Start">Using the production environment</a>
+                  </li>
+                  <li>
+                    <a href="#using-the-sandbox-environment" class="toc-h2 toc-link" data-title="Quick Start">Using the sandbox environment</a>
+                  </li>
+                  <li>
+                    <a href="#required-headers" class="toc-h2 toc-link" data-title="Quick Start">Required headers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#pagination" class="toc-h1 toc-link" data-title="Pagination">Pagination</a>
+          </li>
+          <li>
+            <a href="#transactions" class="toc-h1 toc-link" data-title="Transactions">Transactions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-transactions" class="toc-h2 toc-link" data-title="Transactions">Get all Transactions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://app.pomelopay.com/'>Start usign Pomelo Pay</a></li>
+            <li><small>&copy; Pomelo Pay</small></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Thanks for using the Pomelo Pay API. It&#39;s a great way to build your applications on top of the Pomelo Pay platform.</p>
+
+<p>We&#39;ve added code bindings for shell scripts, PHP and NodeJS.</p>
+
+<p>This REST API accepts both JSON and Hydra requests (using JSON-LD) to give you as much flexibility as possible.</p>
+
+<p>Please contact us at <a href="mailto:support@pomelopay.com">support@pomelopay.com</a> for any questions you might have regarding this API.</p>
+<h1 id='quick-start'>Quick Start</h1><pre class="highlight shell tab-shell"><code>
+curl -X GET <span class="se">\</span>
+  https://app.pomelopay.com/api/transactions <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;apikey&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> 
+
+</code></pre><pre class="highlight php tab-php"><code>
+<span class="cp">&lt;?php</span> 
+<span class="k">use</span> <span class="nx">PomeloPHP\Client</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'application_id'</span><span class="p">);</span> <span class="c1">// creates a production client
+</span><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'application_id'</span><span class="p">,</span> <span class="s1">'sandbox'</span><span class="p">);</span> <span class="c1">// creates a sandbox client
+</span>
+</code></pre>
+<p>To interact with the Pomelo Pay API you need to create a Pomelo Pay application in your <a href="https://app.pomelopay.com/dashboard/apps">merchant portal</a>.</p>
+
+<p>After you create an application we will provide you with a <code>production</code> and <code>sandbox</code> API key and Application ID.</p>
+<h2 id='using-the-production-environment'>Using the production environment</h2>
+<aside class="notice">
+Only use the production environment if you have tested your application and you are happy with the results.
+</aside>
+
+<p>Make requests to the following base url:</p>
+
+<p><code>GET https://app.pomelopay.com/api</code></p>
+<h2 id='using-the-sandbox-environment'>Using the sandbox environment</h2>
+<p>Transactions created in our sandbox environment will give you the chance to approve, cancel or error specific transactions.</p>
+
+<p>This will give you the flexibility to create different scenario&#39;s  for your application.</p>
+
+<p>Make requests to the following base url:</p>
+
+<p><code>GET https://sandbox.pomelopay.com/api</code></p>
+<h2 id='required-headers'>Required headers</h2>
+<p>The following headers are available:</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization</td>
+<td><code>Bearer &lt;apikey&gt;</code></td>
+<td>Your API key generated when you created an application</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td><code>application/json</code> <br> <code>application/ld+json</code></td>
+<td>Receive responses in JSON or JSON-LD format</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td><code>application/json</code></td>
+<td>Specifies the Content-Type of the request body, only JSON is accepted</td>
+</tr>
+</tbody></table>
+
+<p>These headers are usually automatically included if you use any of our Pomelo Pay SDK&#39;s.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Send your API Key with every request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X GET <span class="se">\</span>
+  https://app.pomelopay.com/api/transactions <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;apikey&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> 
+
+</code></pre><pre class="highlight php tab-php"><code>
+<span class="cp">&lt;?php</span> 
+<span class="k">use</span> <span class="nx">PomeloPHP\Client</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'application_id'</span><span class="p">);</span> <span class="c1">// creates a production client
+</span><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'application_id'</span><span class="p">,</span> <span class="s1">'sandbox'</span><span class="p">);</span> <span class="c1">// creates a sandbox client
+</span>
+</code></pre>
+<p>To interact with the Pomelo Pay API you need to create a Pomelo Pay application in your <a href="https://app.pomelopay.com/dashboard/apps">merchant portal</a>.</p>
+
+<p>You must send your <code>API key</code> as the <code>Authorization</code> header with every request. Make sure you protect this API key and never share it outside your application.</p>
+
+<p>Some specific requests also require you to send your <code>applicationId</code>.</p>
+
+<p>If you use any of our Pomelo Pay SDK&#39;s they will be automatically included if you use the SDK client to make requests.</p>
+
+<aside class="notice">
+Make sure you keep your <code>API key</code> and <code>applicationId</code> secure and safe.
+</aside>
+<h1 id='pagination'>Pagination</h1><pre class="highlight shell tab-shell"><code>
+curl -X GET <span class="se">\</span>
+  https://app.pomelopay.com/api/transactions?page<span class="o">=</span>3&amp;itemsPerPage<span class="o">=</span>10 <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;apikey&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> 
+
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="k">use</span> <span class="nx">PomeloPHP\Client</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'appid'</span><span class="p">);</span>
+
+<span class="nv">$subSet</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">transactions</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">([</span>
+  <span class="s2">"page"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1">// We're on page 3
+</span>  <span class="s2">"itemsPerPage"</span> <span class="o">=&gt;</span> <span class="mi">5</span> <span class="c1">// We're displaying 5 items per page
+</span><span class="p">]);</span>
+
+<span class="nv">$all</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">transactions</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">([</span>
+  <span class="s2">"pagination"</span> <span class="o">=&gt;</span> <span class="mi">0</span> <span class="c1">// Don't paginate the results
+</span><span class="p">]);</span> 
+
+</code></pre>
+<p>The Pomelo Pay API offers a flexible pagination structure for <code>GET</code> requests on collections.
+The following query filters are possible for pagination.
+The default <code>page</code> number is <code>1</code>.</p>
+
+<table><thead>
+<tr>
+<th>Query</th>
+<th>Values</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pagination</td>
+<td>0,1</td>
+<td>Disable or enable pagination</td>
+<td>1</td>
+</tr>
+<tr>
+<td>page</td>
+<td><code>int</code></td>
+<td>Page of the collection</td>
+<td>1</td>
+</tr>
+<tr>
+<td>itemsPerPage</td>
+<td><code>int</code></td>
+<td>Numbers of items per page</td>
+<td>20</td>
+</tr>
+</tbody></table>
+
+<p>Example to get page 3 of a collection that gives you 10 items per page:</p>
+
+<p><code>GET https://app.pomelopay.com/api/transactions?page=3&amp;itemsPerPage=10</code></p>
+
+<p>Example to disable pagination:</p>
+
+<p><code>GET https://app.pomelopay.com/api/transactions?pagination=0</code></p>
+<h1 id='transactions'>Transactions</h1><h2 id='get-all-transactions'>Get all Transactions</h2><pre class="highlight shell tab-shell"><code>
+curl -X GET <span class="se">\</span>
+  https://app.pomelopay.com/api/transactions <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;apikey&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> 
+
+</code></pre><pre class="highlight php tab-php"><code>
+<span class="cp">&lt;?php</span> 
+<span class="k">use</span> <span class="nx">PomeloPHP\Client</span><span class="p">;</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="s1">'apikey'</span><span class="p">,</span> <span class="s1">'application_id'</span><span class="p">);</span> <span class="c1">// creates a production client
+</span><span class="nv">$transactions</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">transactions</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">();</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d460a24-38ea-11e8-88db-591e8a5a25ac"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"securityWord"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barbarous Red deer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hashId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2yVs1WtNLxuqoEQGO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456-123456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"appVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ch_1CDaXALvQfjQdARzeufwiYQb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POMELO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayNameDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction has been confirmed"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:56+02:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:56+02:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QR_CODE_GENERATED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayNameDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction is pending"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:08+02:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:08+02:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INITIATED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"displayNameDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction is pending"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:07+02:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:07+02:00"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"qr"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d9de05a-38ea-11e8-88db-591e8a5a25ac"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60a9ad0303e5f0634ffc0410c7527e20.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-eu-west-1.amazonaws.com/pomelodev-shenzhen/qrcodes/60a9ad0303e5f0634ffc0410c7527e20.png"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"currentState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentStateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"displayNameDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction has been confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"providersDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POMELO"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pomelo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-eu-west-1.amazonaws.com/pomelodev-shenzhen/providers/icon_pomelo.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"costStructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8da3d064-38ea-11e8-88db-591e8a5a25ac"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payable"</span><span class="p">:</span><span class="w"> </span><span class="mi">953</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.022</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeRateExact"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.047</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"forwardUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8000/hooks/out/8d460a24-38ea-11e8-88db-591e8a5a25ac"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"redirectUrl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:07+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-05T16:01:56+02:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span></code></pre>
+<p>This endpoints gets all transactions</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://app.pomelopay.com/api/transactions</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>See <a href="./?shell#pagination">Pagination</a></p>
+<h3 id='request-body'>Request body</h3>
+<p>This request takes no body</p>
+<h3 id='response-body'>Response body</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>unique id of the transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>notes added to this transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>securityWord</td>
+<td>security word that is added on confirmation</td>
+<td>string</td>
+</tr>
+<tr>
+<td>hashId</td>
+<td>unique hashId of the transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>appVersion</td>
+<td>version of the app or API that was used to create this transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>deviceId</td>
+<td>id of the device or application that was used to create this transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>the payment provider used for this transaction</td>
+<td>string</td>
+</tr>
+<tr>
+<td>history</td>
+<td>array of transactions states</td>
+<td>array</td>
+</tr>
+<tr>
+<td>qr</td>
+<td>QR code information for this transaction</td>
+<td>object</td>
+</tr>
+<tr>
+<td>currentState</td>
+<td>current state of the transaction</td>
+<td>object</td>
+</tr>
+<tr>
+<td>costStructure</td>
+<td>detailed information about fees and rates</td>
+<td>object</td>
+</tr>
+<tr>
+<td>forwardUrl</td>
+<td>URL to redirect to for payment completion</td>
+<td>string</td>
+</tr>
+<tr>
+<td>redirectUrl</td>
+<td>optional redirect url to go after payment</td>
+<td>string</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>amount in cents for this transactions</td>
+<td>int</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>currency of this transaction</td>
+<td>3 letter ISO code</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The following error status codes might be returned:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid. See response body for validation errors.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- You don&#39;t have access to this resource</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- This endpoint does not accept the specified HTTP method</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="php">php</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
