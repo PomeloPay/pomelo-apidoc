@@ -4,7 +4,7 @@
 
 Read the full [documentation](https://pomelopay.github.io/pomelo-apidoc/)
 
-# SDK's and Frameworks
+## SDK's and Frameworks
 
 If you're looking to use this API in a specific stack or framework you currently have the following options:
 
@@ -13,7 +13,7 @@ If you're looking to use this API in a specific stack or framework you currently
 | PHP7                       | https://github.com/sverraest/pomelo-php                         |
 | Other                      | Build one and get featured here!                                |
 
-# About
+## About
 
 [Pomelo Pay](https://www.pomelopay.com) offers merchants and customers an easy-to-use payment system by using a software-only, hardware-free payment solution. 
 Both in-store and online.
@@ -24,7 +24,7 @@ Both in-store and online.
 | Pomelo Checkout                      | Self-serve payment channel for your customers.                              
 | Pomelo Connect                      | Quickly integrate all major online payment methods wherever you need them.             
 
-# Support
+## Support
 
 If need support with the Pomelo Pay API please open an issue on this repository.
 
