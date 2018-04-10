@@ -26,7 +26,7 @@ Both in-store and online.
 
 # Support
 
-If you have an issue with the API please open an issue on this repository.
+If need support with the Pomelo Pay API please open an issue on this repository.
 
 For all other support you can contact us at support@pomelopay.com
 
