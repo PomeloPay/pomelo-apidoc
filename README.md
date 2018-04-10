@@ -1,4 +1,4 @@
-# PomeloPay API
+# Pomelo Pay API
 
 > Official API Documentation for [Pomelo Pay](https://www.pomelopay.com).
 
