@@ -1,6 +1,6 @@
-# Pomelo Pay API
+# Pomelo Pay API v1.0
 
-> Official API Documentation for [Pomelo Pay](https://www.pomelopay.com).
+> Official v1.0 API Documentation for [Pomelo Pay](https://www.pomelopay.com).
 
 Read the full [documentation](https://pomelopay.github.io/pomelo-apidoc/)
 
