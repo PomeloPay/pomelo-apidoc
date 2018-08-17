@@ -1,4 +1,4 @@
-# Pomelo Pay API v1.0
+# Pomelo Pay API v1.0 (Deprecated from 31/09/2018)
 
 > Official v1.0 API Documentation for [Pomelo Pay](https://www.pomelopay.com).
 
