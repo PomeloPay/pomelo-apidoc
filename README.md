@@ -1,6 +1,6 @@
 # Pomelo Pay API v1.0 (Deprecated from 31/09/2018)
 
-> Visit the new API documentation at https://github.com/pomelopay/pomelo-connect
+> Visit the new API documentation at https://github.com/PomeloPay/pomelopay-connect
 
 > Official v1.0 API Documentation for [Pomelo Pay](https://www.pomelopay.com).
 
